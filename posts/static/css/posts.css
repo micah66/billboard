@@ -28,12 +28,14 @@
   font-size: 30px;
   font-family: 'Anton', sans-serif;
   color: #00b7ef;
+  margin: 20px 0;
 }
 
 .post-body {
   font-family: 'Arial';
   font-size: 16px;
   color: #c1bfc0;
+  padding-bottom: 40px;
 }
 
 .post-author {
@@ -43,4 +45,20 @@
   position: absolute;
   bottom: 0;
   right: 0;
+}
+
+#add-posts {
+  max-width: 800px;
+  border: 1px dashed black;
+  margin: auto;
+}
+
+#newPostBtn {
+  margin: 10px calc(50% - 40px);
+  font-size: 16px;
+  background-color: #66CDAA;
+  color: white;
+  border-radius: 3px;
+  height: 30px;
+  width: 80px;
 }
