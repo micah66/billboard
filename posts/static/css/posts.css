@@ -1,3 +1,9 @@
+#title {
+  text-align: center;
+  font-family: 'Anton', sans-serif;
+  font-size: 40px;
+  color: black;
+}
 
 .post {
   position: relative;
@@ -8,7 +14,7 @@
 }
 
 .post-content {
-  margin: 0 25px;
+  margin: 0 20px;
   position: relative;
 }
 
@@ -21,7 +27,7 @@
   top: 0px;
   transform: translateY(-50%);
   padding: 0 10px;
-  margin: 0 25px;
+  margin: 0 20px;
 }
 
 .post-title {
@@ -47,18 +53,74 @@
   right: 0;
 }
 
-#add-posts {
+#newPostContainer {
+  position: relative;
+  border: 3px dashed #00b7ef;
+  margin: auto;
+  margin-bottom: 30px;
+  max-width: 800px;
+}
+
+.buttonsArea {
   max-width: 800px;
   border: 1px dashed black;
   margin: auto;
+  display: flex;
+  justify-content: center;
 }
 
-#newPostBtn {
-  margin: 10px calc(50% - 40px);
+.btn {
   font-size: 16px;
-  background-color: #66CDAA;
   color: white;
   border-radius: 3px;
   height: 30px;
   width: 80px;
+  cursor: pointer;
+  margin: 10px 1px;
+}
+
+.green-btn {
+  background-color: #66CDAA;
+  order: 1;
+}
+
+#close-form-btn {
+  background-color: red;
+}
+
+#new-post-texts {
+  margin: 25px;
+  position: relative;
+}
+
+#new-post-title {
+  margin: 15px 0;
+}
+
+#new-post-body {
+  height: 100px;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+#new-post-author {
+  position: absolute;
+  right: 0;
+  bottom: -10px;
+}
+
+.hidden {
+  display: none;
+}
+
+#noPostsMessage {
+  text-align: center;
+  font-family: 'Arial';
+  font-size: 24px;
+  color: Black;
+}
+
+#bottomMessage {
+  margin-bottom: 30px;
+  margin-top: -24px;
 }
