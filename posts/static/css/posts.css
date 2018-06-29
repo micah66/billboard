@@ -78,13 +78,15 @@
   cursor: pointer;
   margin: 10px 1px;
 }
-
+#showNewPostFormBtn {
+  transition: font-size 2s ease;
+}
 .green-btn {
   background-color: #66CDAA;
   order: 1;
 }
 
-#close-form-btn {
+.close-btn {
   background-color: red;
 }
 
@@ -123,4 +125,7 @@
 #bottomMessage {
   margin-bottom: 30px;
   margin-top: -24px;
+}
+#showNewPostFormBtn:hover {
+  font-size: 20px;
 }
