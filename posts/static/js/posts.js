@@ -1,5 +1,3 @@
-newPostForm = ''
-
 $('#showNewPostFormBtn').click(() => {
   $('#showNewPostForm').addClass('hidden')
   $('#noPostsMessage').addClass('hidden')
@@ -11,3 +9,10 @@ $('#close-form-btn').click(() => {
   $('#noPostsMessage').removeClass('hidden')
   $('#formWrapper').addClass('hidden')
 })
+
+const postPost = () => {
+  $.post('/posts/new_post', (newPost) => {
+    const postDiv = $('<div/>')
+    postDiv.addClass('post')
+  })
+}

@@ -1,0 +1,11 @@
+{% extends 'billboard/base.html' %}
+{% block nav%}
+{% endblock %}
+{% block content %}
+<h1>Sign up</h1>
+<form class="" action="{% url 'registration' %}" method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" name="" value="Sign Up">
+</form>
+{% endblock %}

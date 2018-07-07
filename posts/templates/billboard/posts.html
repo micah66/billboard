@@ -1,55 +1,42 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Billboard</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Anton|Pinyon+Script|Poiret+One" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/posts.css' %}">
-  </head>
-  <body>
-    <h1 id="title">BILLBOARD</h1>
-    <div id="posts-container">
-      {% if posts %}
-      {% for post in posts %}
-      <div class="post">
-          <span class="post-date">{{post.date.day}}/{{post.date.month}}/{{post.date.year}}</span>
-          <div class="post-content">
-            <p class="post-title">{{post.title}}</p>
-            <p class="post-body">{{post.body}}</p>
-            <span class="post-author">{{post.author}}</span>
-        </div>
+{% extends 'billboard/base.html' %}
+{% block content %}
+<div id="posts-container">
+  {% if posts %}
+  {% for post in posts %}
+  <div class="post">
+      <span class="post-date">{{post.date.day}}/{{post.date.month}}/{{post.date.year}}</span>
+      <div class="post-content">
+        <p class="post-title">{{post.title}}</p>
+        <p class="post-body">{{post.body}}</p>
+        <span class="post-author">{{post.author}}</span>
+    </div>
+  </div>
+  {% endfor %}
+  {% else %}
+  <div id="noPostsMessage">
+    <p>No messages...</p>
+    <p id="bottomMessage">Click the '+' button to add a new message</p>
+  </div>
+  {% endif %}
+</div>
+<div id="showNewPostForm" class="buttonsArea">
+  <button class="btn green-btn" id="showNewPostFormBtn" type="button" name="button"><i class="fa fa-plus" id="plus"></i></button>
+</div>
+<div id="formWrapper" class="hidden">
+  <form id="newPostForm" action="{% url 'posts' %}" method="post">
+    <div id="newPostContainer">
+      <span class="post-date">{{ date.day}}/{{ date.month}}/{{ date.year}}</span>
+      <div id="new-post-texts">
+        {% csrf_token%}
+        <input id="new-post-title" type="text" name="title" placeholder="Title" value="" required>
+        <textarea id="new-post-body" name="body" rows="8" cols="80" placeholder="Your message here" form="newPostForm" required></textarea>
+        <input id="new-post-author" type="hidden" name="author" value="{{ user }}" required>
       </div>
-      {% endfor %}
-      {% else %}
-      <div id="noPostsMessage">
-        <p>No messages...</p>
-        <p id="bottomMessage">Click the '+' button to add a new message</p>
-      </div>
-      {% endif %}
     </div>
-    <div id="showNewPostForm" class="buttonsArea">
-      <button class="btn green-btn" id="showNewPostFormBtn" type="button" name="button"><i class="fa fa-plus" id="plus"></i></button>
+    <div class="buttonsArea">
+      <button class="btn green-btn" type="submit" name="button"><i class="fa fa-check"></i></button>
+      <button class="btn close-btn" id="close-form-btn" type="button" name="button"><i class="fa fa-close"></i></button>
     </div>
-    <div id="formWrapper" class="hidden">
-      <form id="newPostForm" action="{% url 'posts' %}" method="post">
-        <div id="newPostContainer">
-          <span class="post-date">{{ date.day}}/{{ date.month}}/{{ date.year}}</span>
-          <div id="new-post-texts">
-            {% csrf_token%}
-            <input id="new-post-title" type="text" name="title" placeholder="Title" value="" required>
-            <textarea id="new-post-body" name="body" rows="8" cols="80" placeholder="Your message here" form="newPostForm" required></textarea>
-            <input id="new-post-author" type="text" name="author" placeholder="Author" value="" required>
-          </div>
-        </div>
-        <div class="buttonsArea">
-          <button class="btn green-btn" type="submit" name="button"><i class="fa fa-check"></i></button>
-          <button class="btn close-btn" id="close-form-btn" type="button" name="button"><i class="fa fa-close"></i></button>
-        </div>
-      </form>
-    </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="{% static 'js/posts.js' %}"></script>
-  </body>
-</html>
+  </form>
+</div>
+{% endblock %}

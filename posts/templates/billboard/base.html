@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Billboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Anton|Pinyon+Script|Poiret+One" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/posts.css' %}">
+  </head>
+  <body>
+    <nav id="navigation">
+      <h1 id="title"><a href="{% url 'posts' %}">BILLBOARD</a></h1>
+      {% block nav %}
+      <div id="username">
+        {{ user }}
+      </div>
+      {% if user.is_anonymous %}
+      <div id="nav-boxes">
+        <a class="nav-box" href="{% url 'login' %}">Login</a>
+        <a class="nav-box" href="{% url 'registration' %}">Register</a>
+      </div>
+      {% else %}
+      <div id="nav-boxes">
+        <a class="nav-box" href="{% url 'logout' %}">Logout</a>
+      </div>
+      {% endif %}
+      {% endblock %}
+    </nav>
+    {% block content %}
+    {% endblock %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{% static 'js/posts.js' %}"></script>
+  </body>
+</html>
