@@ -154,3 +154,37 @@
 #showNewPostFormBtn:hover {
   font-size: 20px;
 }
+
+#registrationTitle {
+  text-align: center;
+}
+
+.inputfield {
+  margin-left: 95px;
+  height: 35px;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  border: 1px solid #dfdfdf;
+  border-radius: 2px;
+  box-shadow: 0 0 35px -10px black;
+}
+
+.helptext {
+  display: block;
+  color: red;
+}
+
+#submitRegistration,
+#submitLogin {
+  font-size: 1em;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  border: 1px dashed #00b7ef;
+}
+
+.inputfield input {
+  height: 25px;
+  margin: 5px;
+}

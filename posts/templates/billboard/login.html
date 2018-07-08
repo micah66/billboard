@@ -8,15 +8,19 @@
 <div class="form" id="login-form">
   <form class="" action="{% url 'login' %}" method="post">
     {% csrf_token %}
-    <div id="login-username">
+    <p>
       {{ form.username.label_tag }}
+      <span class="inputfield">
       {{ form.username }}
-    </div>
-    <div id="login-password">
+      </span>
+    </p>
+    <p>
       {{ form.password.label_tag }}
+      <span class="inputfield">
       {{ form.password }}
-    </div>
-    <input class="clickable" id="login-btn" type="submit" value="Login">
+      </span>
+    </p>
+    <input class="clickable" id="submitLogin" type="submit" value="Login">
     <input type="hidden" name="next" value="{{ next }}">
   </form>
 </div>

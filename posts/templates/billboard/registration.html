@@ -2,10 +2,30 @@
 {% block nav%}
 {% endblock %}
 {% block content %}
-<h1>Sign up</h1>
+<h1 id="registrationTitle">Create an account</h1>
 <form class="" action="{% url 'registration' %}" method="post">
   {% csrf_token %}
-  {{ form.as_p }}
-  <input type="submit" name="" value="Sign Up">
+  <p>
+    <label for="id_username">Username:</label>
+    <span class="inputfield">
+      <input type="text" name="username" maxlength="30" autofocus required id="id_username" value="">
+    </span>
+    <span class="helptext">Required. 30 characters or fewer. Letters, digits, and @/./+/-/_ only.</span>
+  </p>
+  <p>
+    <label for="id_password1">Password:</label>
+    <span class="inputfield">
+      <input type="password" name="password1" required id="id_password1" value="">
+    </span>
+    <span class="helptext"></span>
+  </p>
+  <p>
+    <label for="id_password2">Password confirmation:</label>
+    <span class="inputfield">
+      <input type="password" name="password2" required id="id_password2" value="">
+    </span>
+    <span class="helptext">Enter the same password as before, for verification</span>
+  </p>
+  <input class="clickable" id="submitRegistration" type="submit" name="" value="Create the account">
 </form>
 {% endblock %}
